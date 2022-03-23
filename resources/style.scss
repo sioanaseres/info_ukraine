@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-family: Helvetica, Arial,  sans-serif; font-size: 16px; line-height: 1.5em; background: #000; background: radial-gradient( circle farthest-corner at center 0, #444, #111 40%) no-repeat;   color: #fff ;
+	@media (min-width:1050px) {font-size: 24px; line-height: 1.5em;}}
+
+body { display: block; min-height: 100vh; margin: 0; text-rendering: optimizeSpeed; }
+
+img, picture { max-width: 100%; display: block; }
+
+input, button, textarea, select { font: inherit; }
+
+strong { font-weight: 900; }
+
+a {color:#0057b7}
+a:hover { color: #000 ;}
+a:active {color: #ffd700 }
+h1 {font-size: 1.5em; line-height: 1.25em;
+	@media (min-width:500px) {font-size: 2.5em; }
+}
+h2{ font-size: 1.25em; line-height: 1.5em;
+	@media (min-width:500px) {font-size: 1.5em; }}
+
+.ScreenReaders {position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+clip: rect(0,0,0,0); white-space: nowrap; border-width: 0}
+
+/*******************************/ 
+.Button {display: block; border-radius: 0.5em; font-weight: normal; text-align: center; padding: 0.5em 1em; background-color: #627500; color: #fff; text-transform: uppercase; text-decoration: none;
+&:hover { background: #000; color: #fff;}}
+
+.Container{background: rgba(255,255,255, 0.9); color: #222; margin: 4vh auto; 
+	@media (min-width:1350px) {margin: 1vh auto; max-width: 1300px; }}
+	.Header {display: block; background: #fff; 
+		@media (min-width:800px) {display: flex;}}
+		.Logo {display: block; font-size: 2.5rem; line-height: 1em; padding: 0.25em 0.5em ; text-decoration: none; text-align: center; font-weight: 900; font-style: italic; background: -webkit-linear-gradient(45deg, #001b38, #3b7dc3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing:-2px ;
+			@media (min-width:800px) {padding: 0.5em;}
+		}
+			.Logo span {}
+		.HeaderNav {flex-grow: 1; display: block ; padding: 0 0 0.75em;
+			@media (min-width:800px) {padding: 0;}}
+			.HeaderList {display: block; list-style-type: none; margin: 0 ; padding: 0; height: 100%;text-align: center;
+				@media (min-width:500px) {display: flex;}}
+				.HeaderItem {display:block; flex-grow: 1; margin: 0.5em; 
+					@media (min-width:800px) {display: flex; align-items: center; justify-content:stretch;}}	
+					.HeaderLink { border-radius: 1em; display: block; padding:1em ; color: #fff; background: #0057b7; background: linear-gradient(0deg, #000 0%, #004085 100%); text-decoration: none; font-weight: bold; flex-grow: 1;
+					&:hover {background: #0057b7; background: linear-gradient(0deg, #004085 0%, #0057b7 100%);}}
+						.Flag{ display: inline-block; width: auto; height: 1.5em; vertical-align: bottom;}	
+						.HeaderLink.Flag {border: 1px solid transparent;}
+						.HeaderLink:hover .Flag {border: 1px solid #fff;}
+							.Stars{transform: scale(1,1) translate(50%, 50%); transform-origin:center ;
+								@media (min-width:500px) {transform: scale(1.5,1.5) translate(50%, 50%) }
+								@media (min-width:1050px) {transform: scale(2,2) translate(50%, 50%) }}
+						.HeaderText {}
+	.Content {padding: 0.5em;}
+		.PageHeader {display: block;  margin: 0.5em; padding: 0; font-weight: normal; letter-spacing:-1px ;
+			@media (min-width:500px) {margin: 0.5em 0.25em; letter-spacing:-2px ; }}
+		 	.PageHeader .Flag{width: auto; height: 1em; vertical-align: middle;}
+			.PageHeader .HeaderText { }
+		.SecondaryHeader{display: block;   margin: 1em 0.5em 0.5em; padding: 0; }
+		.ResourceList {display: block; margin: 0; padding: 0; list-style-type: none; }
+			.ResouceItem {display: block;	}
+				.ResourceLink {display: block; padding: 0.5em;  font-weight: bold;
+				&:hover { text-decoration: none;}}
+					.ResourceMore {display: block; padding: 0.5em; }
+						.ResourceMore .ResourceLink{display: inline; padding: 0; font-weight: normal;}
+	.Aside {}
+		.AsideTitle{}
+	.Footer{}
+		.Footer p{}
+/*******************************/ 
+@media print {
+
+	* { background-image: none; background: white; color: black; }
+
+	@page { margin: 2cm; }
+	@page :first { margin-top: 3cm; }
+	@page :left { margin-right: 3cm; }
+	@page :right { margin-left: 3cm; }
+
+	html { background: white; font-size: 12pt; line-height: 1.5em; }
+
+	a:link, a:visited { color: #00f; background: transparent; font-weight: bold; }
+	a:not([href^="http"]):after { content: " (" attr(href) ")"; font-size: 0.9em; }
+	a[href^="/"]:after { content: " (" attr(href) ") "; }
+	/*a:not(:local-link):after { content: " (" attr(href) ")»"; }*/
+	a:after > img { content: ""; }
+
+	body::after { content: ""; display: block; text-align: center; }
+
+	.Container { background: transparent; margin: 0; padding: 0; }
+
+	h1, h2, h3, h4, h5, h6 { page-break-after: avoid; page-break-inside: avoid }
+	h1 + h2 { page-break-before: avoid; }
+
+	table, pre, img, svg, blockquote, a { break-inside: avoid; }
+
+	ul, ol, dl { page-break-before: avoid; }
+
+}
